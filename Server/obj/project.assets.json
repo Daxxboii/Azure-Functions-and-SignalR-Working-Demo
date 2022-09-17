@@ -2043,11 +2043,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\SignalR Working Demo Game\\Server\\Server.csproj",
+      "projectUniqueName": "F:\\Azure-Functions-and-SignalR-Working-Demo\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "F:\\SignalR Working Demo Game\\Server\\Server.csproj",
+      "projectPath": "F:\\Azure-Functions-and-SignalR-Working-Demo\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Daxx\\.nuget\\packages\\",
-      "outputPath": "F:\\SignalR Working Demo Game\\Server\\obj\\",
+      "outputPath": "F:\\Azure-Functions-and-SignalR-Working-Demo\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Daxx\\AppData\\Roaming\\NuGet\\NuGet.Config",

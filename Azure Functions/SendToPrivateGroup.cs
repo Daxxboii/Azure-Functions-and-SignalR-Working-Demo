@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.SignalR.Client;
-using System.Diagnostics;
 
-namespace Azure_Functions
+namespace DemoServer.SendToPrivateGroup
 {
-    public static class OnDataSend
+    public static class SendToPrivateGroup
     {
-        [FunctionName("OnDataSend")]
-        public static async Task<IActionResult> Run(
+        [FunctionName("SendToPrivateGroup")]
+       public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -24,8 +23,10 @@ namespace Azure_Functions
             //SignalR
             HubConnection connection = new HubConnectionBuilder().WithUrl("https://deployingsignalrserver.azurewebsites.net/Gamehub").Build();
             await connection.StartAsync();
+            string GroupName="";
+            //Pull GroupName from requestBody
 
-            await connection.InvokeAsync<string>("SendDataToAll", requestBody);
+            await connection.InvokeAsync<string>("SendDataToGroup", requestBody,GroupName);
 
             await connection.StopAsync();
 

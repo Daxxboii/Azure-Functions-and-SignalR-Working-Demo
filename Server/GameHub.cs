@@ -4,8 +4,18 @@ public class GameHub : Hub{
     public Dictionary<string,string> OnlinePlayers = new Dictionary<string,string>();
 
 
-    public async Task SendData(string data){
+    public async Task SendDataToAll(string data){
         await Clients.Group("Public").SendAsync("Data",data);
+    }
+
+    public async Task SendDataToSelf(string data,string ClientID)
+    {
+        await Clients.Client(ClientID).SendAsync("PrivateData",data);
+    }
+
+    public async Task SendDataToGroup(string data,string GroupName)
+    {
+        await Clients.Group(GroupName).SendAsync("PrivateGroupData", data);
     }
 
     public async Task AddToChannel(string ChannelName,string PlayerName){

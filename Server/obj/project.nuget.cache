@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v+N8x6i/WW5B4aZJIcK1QUAFls36KgRUviH/bQZ9J68cjavis5xszea9x4dzKjvbklDefa8SSzijQFJHydcO0A==",
+  "dgSpecHash": "s6jtnbrHP/BD7RRo1kVDdtqoZxyaoop3bsgmnD1B26pBFrsZI2hE4JvLK1bUgpuncV7u3TMbbmsZmJuR1Sbthw==",
   "success": true,
-  "projectFilePath": "F:\\SignalR Working Demo Game\\Server\\Server.csproj",
+  "projectFilePath": "F:\\Azure-Functions-and-SignalR-Working-Demo\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daxx\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Daxx\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

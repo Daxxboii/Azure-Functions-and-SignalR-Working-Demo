@@ -6,15 +6,14 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Microsoft.AspNetCore.SignalR.Client;
-using System.Diagnostics;
+using Newtonsoft.Json;
 
-namespace Azure_Functions
+namespace DempProject.SendToPrivate
 {
-    public static class OnDataSend
+    public static class SendToPrivateClient
     {
-        [FunctionName("OnDataSend")]
+        [FunctionName("SendToPrivateClient")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -24,8 +23,10 @@ namespace Azure_Functions
             //SignalR
             HubConnection connection = new HubConnectionBuilder().WithUrl("https://deployingsignalrserver.azurewebsites.net/Gamehub").Build();
             await connection.StartAsync();
+            string ClientID="";
+            //Pull Client ID from requestBody
 
-            await connection.InvokeAsync<string>("SendDataToAll", requestBody);
+            await connection.InvokeAsync<string>("SendDataToSelf", requestBody,ClientID);
 
             await connection.StopAsync();
 
