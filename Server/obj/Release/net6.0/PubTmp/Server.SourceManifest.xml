@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="F:\SignalR Working Demo Game\Server\obj\Release\net6.0\PubTmp\Out\" />
+  <IisApp path="F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Release\net6.0\PubTmp\Out\" />
 </sitemanifest>

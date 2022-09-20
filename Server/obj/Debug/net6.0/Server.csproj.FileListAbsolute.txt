@@ -27,3 +27,32 @@ F:\SignalR Working Demo Game\Server\obj\Debug\net6.0\refint\Server.dll
 F:\SignalR Working Demo Game\Server\obj\Debug\net6.0\Server.pdb
 F:\SignalR Working Demo Game\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache
 F:\SignalR Working Demo Game\Server\obj\Debug\net6.0\ref\Server.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\appsettings.Development.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\appsettings.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.staticwebassets.runtime.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.exe
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.deps.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.runtimeconfig.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Server.pdb
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.csproj.AssemblyReference.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.GeneratedMSBuildEditorConfig.editorconfig
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.AssemblyInfoInputs.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.AssemblyInfo.cs
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.csproj.CoreCompileInputs.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.MvcApplicationPartsAssemblyInfo.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.RazorAssemblyInfo.cs
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\staticwebassets.build.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\staticwebassets.development.json
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\scopedcss\bundle\Server.styles.css
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\scopedcss\projectbundle\Server.bundle.scp.css
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.csproj.CopyComplete
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\refint\Server.dll
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.pdb
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\Server.genruntimeconfig.cache
+F:\Azure-Functions-and-SignalR-Working-Demo\Server\obj\Debug\net6.0\ref\Server.dll

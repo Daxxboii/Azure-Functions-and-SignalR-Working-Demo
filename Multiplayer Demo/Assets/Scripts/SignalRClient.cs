@@ -24,6 +24,8 @@ public class SignalRClient : MonoBehaviour
     public GameObject EventButton;
 
 
+    public string SignalRID;
+
     //  Use this for initialization
     void Awake()
     {
@@ -45,21 +47,27 @@ public class SignalRClient : MonoBehaviour
 
 
        await connection.InvokeAsync<string>("AddToChannel", "Public",PlayFabmanager.PlayerUsername);
+      
 
         connection.On<string>("Data", (data) =>
         {
-            dynamic DeserializedData = JsonConvert.DeserializeObject(data);
-
             InvokedText.gameObject.SetActive(true);
             PlayerDetails.gameObject.SetActive(true);
 
+            dynamic DeserializedData = JsonConvert.DeserializeObject(data);
             PlayerDetails.text = "UserName"+ DeserializedData.PlayerProfile.LinkedAccounts[0].Username;
-            
 
             dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
-            Debug.Log(NestedEventData.XP);
+           // Debug.Log(NestedEventData.XP);
+        });
 
 
+        await connection.InvokeAsync<string>("SendSignalRIDToClient");
+        Debug.Log("awaited");
+        connection.On<string>("SignalRID",(data) =>
+        {
+            SignalRID = data;
+            Debug.Log(data);
         });
 
 
