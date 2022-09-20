@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using TMPro;
+using BestHTTP.JSON;
+using MyBox;
+using PlayFab.Json;
 
 public class SignalRClient : MonoBehaviour 
 {
@@ -16,9 +19,6 @@ public class SignalRClient : MonoBehaviour
     public static SignalRClient instance;
 
     private HubConnection connection;
-
-    string RecievedData;
-
 
     public TextMeshProUGUI ConnectingStatus,InvokedText, PlayerDetails,ChannelName;
     public GameObject EventButton;
@@ -31,7 +31,6 @@ public class SignalRClient : MonoBehaviour
         DontDestroyOnLoad(this);
         Connect();
     }
-
 
     // Connect to the SignalR server
     public async void Connect()
@@ -49,19 +48,22 @@ public class SignalRClient : MonoBehaviour
 
         connection.On<string>("Data", (data) =>
         {
-            RecievedData = data;
-
-            dynamic _data = JsonConvert.DeserializeObject(RecievedData);
+            dynamic DeserializedData = JsonConvert.DeserializeObject(data);
 
             InvokedText.gameObject.SetActive(true);
             PlayerDetails.gameObject.SetActive(true);
 
-            PlayerDetails.text = _data.PlayerProfile.LinkedAccounts.ToString();
+            PlayerDetails.text = "UserName"+ DeserializedData.PlayerProfile.LinkedAccounts[0].Username;
+            
+
+            dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
+            Debug.Log(NestedEventData.XP);
+
+
         });
 
 
     }
-
 
     private async void OnApplicationQuit()
     {

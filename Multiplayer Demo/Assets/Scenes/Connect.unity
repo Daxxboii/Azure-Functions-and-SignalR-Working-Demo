@@ -1071,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8387bd2665a16b04487518970e574ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EventToTrigger: XPGiven
 --- !u!1 &1740645880
 GameObject:
   m_ObjectHideFlags: 0

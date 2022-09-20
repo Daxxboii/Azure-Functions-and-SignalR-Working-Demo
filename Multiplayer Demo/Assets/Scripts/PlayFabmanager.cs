@@ -160,12 +160,12 @@ public class PlayFabmanager : MonoBehaviour
 
     #region Custom Events to Trigger Playfab Functions
 
-    public void TriggerCustomEvent()
+    public void TriggerCustomEvent(string EventName)
     {
         PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest {
-            EventName = "CustomEvent",
+            EventName = EventName,
              Body = new Dictionary<string, object> {
-            { "Reference string one", "Reference value one" },
+            { "XP", "Reference value one" },
             { "Reference string two", "Reference value two" }}}
         ,result=> Debug.Log("Event Called"),error=> Debug.LogError(error.GenerateErrorReport()));
      
