@@ -20,11 +20,14 @@ namespace DempProject.SendToPrivate
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
+            dynamic DeserializedData = JsonConvert.DeserializeObject<dynamic>(requestBody);
+            dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
+
+            string ClientID = NestedEventData.SignalRID;
+
             //SignalR
             HubConnection connection = new HubConnectionBuilder().WithUrl("https://deployingsignalrserver.azurewebsites.net/Gamehub").Build();
             await connection.StartAsync();
-            string ClientID="";
-            //Pull Client ID from requestBody
 
             await connection.InvokeAsync<string>("SendDataToSelf", requestBody,ClientID);
 

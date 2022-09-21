@@ -20,11 +20,14 @@ namespace DemoServer.SendToPrivateGroup
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
+            dynamic DeserializedData = JsonConvert.DeserializeObject<dynamic>(requestBody);
+            dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
+
+            string GroupName = NestedEventData.GroupName;
+
             //SignalR
             HubConnection connection = new HubConnectionBuilder().WithUrl("https://deployingsignalrserver.azurewebsites.net/Gamehub").Build();
             await connection.StartAsync();
-            string GroupName="";
-            //Pull GroupName from requestBody
 
             await connection.InvokeAsync<string>("SendDataToGroup", requestBody,GroupName);
 

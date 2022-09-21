@@ -24,7 +24,7 @@ public class SignalRClient : MonoBehaviour
     public GameObject EventButton;
 
 
-    public string SignalRID;
+    public static string SignalRID;
 
     //  Use this for initialization
     void Awake()
@@ -33,6 +33,8 @@ public class SignalRClient : MonoBehaviour
         DontDestroyOnLoad(this);
         Connect();
     }
+
+
 
     // Connect to the SignalR server
     public async void Connect()
@@ -44,10 +46,6 @@ public class SignalRClient : MonoBehaviour
 
        ChannelName.gameObject.SetActive(true);
         EventButton.SetActive(true);
-
-
-       await connection.InvokeAsync<string>("AddToChannel", "Public",PlayFabmanager.PlayerUsername);
-      
 
         connection.On<string>("Data", (data) =>
         {
@@ -62,16 +60,18 @@ public class SignalRClient : MonoBehaviour
         });
 
 
-        await connection.InvokeAsync<string>("SendSignalRIDToClient");
-        Debug.Log("awaited");
-        connection.On<string>("SignalRID",(data) =>
+        connection.On<string>("SignalRID", (data) =>
         {
             SignalRID = data;
             Debug.Log(data);
         });
 
 
+        await connection.InvokeAsync<string>("AddToChannel", "Public", PlayFabmanager.PlayerUsername);
+        await connection.InvokeAsync<string>("SendSignalRIDToClient");
     }
+
+   
 
     private async void OnApplicationQuit()
     {

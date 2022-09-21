@@ -31,6 +31,6 @@ public class GameHub : Hub{
     }
 
     public async Task SendSignalRIDToClient(){
-        await Clients.Client(Context.ConnectionId).SendAsync("SignalRID",(Context.ConnectionId.ToString()));
+        await Clients.Client(Context.ConnectionId).SendAsync("SignalRID",Context.ConnectionId);
     }
 }

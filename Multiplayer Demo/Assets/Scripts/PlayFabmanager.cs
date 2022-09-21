@@ -165,8 +165,9 @@ public class PlayFabmanager : MonoBehaviour
         PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest {
             EventName = EventName,
              Body = new Dictionary<string, object> {
-            { "XP", "Reference value one" },
-            { "Reference string two", "Reference value two" }}}
+            { "XP", "600" },
+            { "SignalRID", SignalRClient.SignalRID},
+            { "GroupName","RandomGroupName"} }}
         ,result=> Debug.Log("Event Called"),error=> Debug.LogError(error.GenerateErrorReport()));
      
     }
