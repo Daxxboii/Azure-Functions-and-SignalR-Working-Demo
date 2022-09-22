@@ -67,7 +67,7 @@ public class SignalRClient : MonoBehaviour
         });
 
 
-        await connection.InvokeAsync<string>("AddToChannel", "Public", PlayFabmanager.PlayerUsername);
+        await connection.InvokeAsync<string>("AddToChannel", "Group", PlayFabmanager.PlayerUsername);
         await connection.InvokeAsync<string>("SendSignalRIDToClient");
     }
 

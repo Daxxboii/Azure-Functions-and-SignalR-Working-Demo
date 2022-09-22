@@ -6,7 +6,7 @@ public class GameHub : Hub{
 
     //Called From Azure Functions
     public async Task SendDataToAll(string data){
-        await Clients.Group("Public").SendAsync("Data",data);
+        await Clients.All.SendAsync("Data", data);
     }
 
     public async Task SendDataToSelf(string data,string ClientID)
