@@ -29,7 +29,7 @@ namespace Azure_Functions
 
             await connection.StopAsync();
 
-            return new OkObjectResult(requestBody);
+            return new OkObjectResult("Successful , Recieved");
         }
     }
 }

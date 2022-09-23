@@ -160,19 +160,45 @@ public class PlayFabmanager : MonoBehaviour
 
     #region Custom Events to Trigger Playfab Functions
 
-    public void TriggerCustomEvent(string EventName)
+    public void SendEventToAll(string PlayerSignalRID,string DataType,string DataValue)
     {
         PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest {
-            EventName = EventName,
+            EventName = "SendToAll",
              Body = new Dictionary<string, object> {
-            { "XP", "600" },
-            { "SignalRID", SignalRClient.SignalRID},
-            { "GroupName","RandomGroupName"} }}
+            { DataType,DataValue},
+            { "SignalRID", PlayerSignalRID}}}
+
         ,result=> Debug.Log("Event Called"),error=> Debug.LogError(error.GenerateErrorReport()));
      
     }
-    
-    
+
+    public void SendEventToGroup(string PlayerSignalRID,string GroupName,string DataType, string DataValue)
+    {
+        PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest
+        {
+            EventName = "SendToGroup",
+            Body = new Dictionary<string, object> {
+            { DataType, DataValue },
+            { "SignalRID", PlayerSignalRID},
+            { "GroupName", GroupName} }
+        }
+        , result => Debug.Log("Event Called"), error => Debug.LogError(error.GenerateErrorReport()));
+
+    }
+    public void SendEventToPrivatePlayer(string PlayerSignalRID,string DataType, string DataValue)
+    {
+        PlayFabClientAPI.WritePlayerEvent(new WriteClientPlayerEventRequest
+        {
+            EventName = "SendToPlayer",
+            Body = new Dictionary<string, object> {
+            { DataType, DataValue },
+            { "SignalRID",PlayerSignalRID}}
+        }
+        , result => Debug.Log("Event Called"), error => Debug.LogError(error.GenerateErrorReport()));
+
+    }
+
+
     #endregion
 
 }

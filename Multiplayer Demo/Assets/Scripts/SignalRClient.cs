@@ -20,11 +20,11 @@ public class SignalRClient : MonoBehaviour
 
     private HubConnection connection;
 
-    public TextMeshProUGUI ConnectingStatus,InvokedText, PlayerDetails,ChannelName;
+    public TextMeshProUGUI ConnectingStatus,ChannelName;
     public GameObject EventButton;
 
 
-    public static string SignalRID;
+    public string SignalRID;
 
     //  Use this for initialization
     void Awake()
@@ -47,27 +47,45 @@ public class SignalRClient : MonoBehaviour
        ChannelName.gameObject.SetActive(true);
         EventButton.SetActive(true);
 
+
+        //On Recieving Public Data
         connection.On<string>("Data", (data) =>
         {
-            InvokedText.gameObject.SetActive(true);
-            PlayerDetails.gameObject.SetActive(true);
-
             dynamic DeserializedData = JsonConvert.DeserializeObject(data);
-            PlayerDetails.text = "UserName"+ DeserializedData.PlayerProfile.LinkedAccounts[0].Username;
-
             dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
-           // Debug.Log(NestedEventData.XP);
+
+            Debug.Log(DeserializedData);
+        });
+
+        //On Recieving Private Data
+        connection.On<string>("PrivateData", (data) =>
+        {
+            dynamic DeserializedData = JsonConvert.DeserializeObject(data);
+            dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
+
+            Debug.Log(DeserializedData);
+        });
+
+        //On Recieving Group Data
+        connection.On<string>("PrivateGroupData", (data) =>
+        {
+            dynamic DeserializedData = JsonConvert.DeserializeObject(data);
+            dynamic NestedEventData = JsonConvert.DeserializeObject(DeserializedData.PlayStreamEventEnvelope.EventData.ToString());
+
+            Debug.Log(DeserializedData);
         });
 
 
+
+
+        //On Receiving SignalR ID
         connection.On<string>("SignalRID", (data) =>
         {
             SignalRID = data;
-            Debug.Log(data);
         });
 
 
-        await connection.InvokeAsync<string>("AddToChannel", "Group", PlayFabmanager.PlayerUsername);
+        await connection.InvokeAsync<string>("AddToGroup", "Group");
         await connection.InvokeAsync<string>("SendSignalRIDToClient");
     }
 
@@ -75,7 +93,7 @@ public class SignalRClient : MonoBehaviour
 
     private async void OnApplicationQuit()
     {
-        await connection.InvokeAsync<string>("RemoveFromChannel", "Public");
+        await connection.InvokeAsync<string>("RemoveFromGroup", "Group");
         await connection.StopAsync();
     }
 }

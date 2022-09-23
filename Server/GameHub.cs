@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
 
 public class GameHub : Hub{
-    public Dictionary<string,string> OnlinePlayers = new Dictionary<string,string>();
 
 
     //Called From Azure Functions
@@ -20,13 +19,11 @@ public class GameHub : Hub{
     }
 
     //Called From Clients
-    public async Task AddToChannel(string ChannelName,string PlayerName){
-        OnlinePlayers.Add(Context.ConnectionId, PlayerName);
+    public async Task AddToGroup(string ChannelName){
         await Groups.AddToGroupAsync(Context.ConnectionId, ChannelName);
     }
 
-    public async Task RemoveFromChannel(string ChannelName){
-        OnlinePlayers.Remove(Context.ConnectionId);
+    public async Task RemoveFromGroup(string ChannelName){
          await Groups.RemoveFromGroupAsync(Context.ConnectionId, ChannelName);
     }
 
