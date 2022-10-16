@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using TMPro;
-using BestHTTP.JSON;
 using MyBox;
 using PlayFab.Json;
 
